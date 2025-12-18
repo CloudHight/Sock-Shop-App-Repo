@@ -38,7 +38,7 @@ pipeline {
                 ssh -o StrictHostKeyChecking=no \
                     -o ProxyCommand="ssh -W %h:%p -o StrictHostKeyChecking=no ubuntu@localhost -p 9999" \
                     ubuntu@${ANSIBLE_IP} \
-                    "ansible-playbook /etc/ansible/playbooks/test.yml"
+                    "ansible-playbook /etc/ansible/playbooks/stage.yml"
               '''
             }
             
@@ -129,7 +129,7 @@ pipeline {
                 ssh -o StrictHostKeyChecking=no \
                     -o ProxyCommand="ssh -W %h:%p -o StrictHostKeyChecking=no ubuntu@localhost -p 9999" \
                     ubuntu@${ANSIBLE_IP} \
-                    "ansible-playbook /etc/ansible/playbooks/test2.yml"
+                    "ansible-playbook /etc/ansible/playbooks/prod.yml"
               '''
             }
             
