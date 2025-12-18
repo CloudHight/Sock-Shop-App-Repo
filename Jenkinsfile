@@ -1,5 +1,10 @@
 pipeline {
   agent any
+
+  triggers {
+      pollSCM('* * * * *') // Runs every minute
+  }  
+  
   environment {
     BASTION_INSTANCE_ID = credentials('bastion-id')
     ANSIBLE_IP = credentials('ansible-ip')  // Keeping IP since we need it for port 22 connection
@@ -11,6 +16,7 @@ pipeline {
     STAGE_BRANCH = "stage"
     MAIN_BRANCH = "main"
   }
+  
   stages {
     stage ('Deploying to Stage Environment') {
       steps {
