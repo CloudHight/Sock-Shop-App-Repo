@@ -50,7 +50,7 @@ pipeline {
     
     stage ('Slack Notification for stage') {
       steps {
-        slackSend channel: 'Cloudhight', message: 'New Stage Deployment', teamDomain: '1st-december-sock-shop-kubernetes-project-using-ansible', tokenCredentialId: 'slack'
+        slackSend channel: 'Cloudhight', message: 'New Stage Deployment', teamDomain: '09-february-2026-sock-shop-kubernetes-project', tokenCredentialId: 'slack'
       }
     }
     
@@ -59,7 +59,7 @@ pipeline {
         sh '''
           sleep 30s
           chmod 777 $(pwd)
-          docker run -v $(pwd):/zap/wrk/:rw -t ghcr.io/zaproxy/zaproxy:stable zap-baseline.py -t https://stage.work-experience2025.buzz -g gen.conf -r testreport.html || true
+          docker run -v $(pwd):/zap/wrk/:rw -t ghcr.io/zaproxy/zaproxy:stable zap-baseline.py -t https://stage.seyi-prj2025.space -g gen.conf -r testreport.html || true
         '''
       }
     }
@@ -140,7 +140,7 @@ pipeline {
     
     stage ('Slack Notification for prod') {
       steps {
-        slackSend channel: 'Cloudhight', message: 'New Production Deployment', teamDomain: '1st-december-sock-shop-kubernetes-project-using-ansible', tokenCredentialId: 'slack'
+        slackSend channel: 'Cloudhight', message: 'New Production Deployment', teamDomain: '09-february-2026-sock-shop-kubernetes-project', tokenCredentialId: 'slack'
       }
     }
   }
